@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Colores para todos los gustos</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
     <style>
         * {
             margin: 0;
@@ -22,16 +22,21 @@
 
         .colorElement {
             font-size: 15px;
-            font-weight: bold;
-            padding: 0 .5em .5em 60px;
+            font-weight: 600;
+            padding: 0 .5em .5em 55px;
             margin: 0 5em 5em 0;
             display: inline-block;
             position: relative;
+            min-height: 40px;
+        }
+
+        .colorElement::before,
+        .colorElement::after {
+            position: absolute;
         }
 
         .colorElement::before {
             content: '';
-            position: absolute;
             top: 0;
             left: 0;
             width: 40px;
@@ -41,6 +46,15 @@
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 50%;
+        }
+
+        .colorElement::after {
+            content: 'blabla..';
+            font-size: 14px;
+            font-weight: 400;
+            color: #fafafa;
+            bottom: 0;
+            left: 55px;
         }
     </style>
 </head>
