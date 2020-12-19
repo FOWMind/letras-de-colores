@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es-LA">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Colores para todos los gustos</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', -apple-system, -system-ui, 'Helvetica Neue', sans-serif;
+            text-rendering: optimizeLegibility;
+            padding: 1em;
+            background-color: #36393F;
+        }
+
+        .colorElement {
+            font-size: 15px;
+            font-weight: bold;
+            padding: 0 .5em .5em 60px;
+            margin: 0 5em 5em 0;
+            display: inline-block;
+            position: relative;
+        }
+
+        .colorElement::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            background-color: crimson;
+            background-image: url(profile.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="colors"></div>
+    <script>
+        getNickname = () => {
+            nickname = prompt('Escribe tu nickname:');
+            if (nickname == '' || nickname == ' ') {
+                getNickname();
+            }
+        }
+
+        getMaximum = () => {
+            maximum = prompt('¿Cuántos colores quieres generar?');
+            if (maximum == '' || maximum == ' ') {
+                getMaximum();
+            }
+        }
+        
+        getNickname();
+        getMaximum();
+        
+        randomColor = () => {
+            const chars = '0123456789ABCDEF';
+            let colorValue = '#';
+            
+            for (let i = 0; i < 6; i++) {
+                colorValue += chars[Math.floor(Math.random() * 16)];
+            }
+
+            return colorValue;
+        }
+
+        let colorsBox = document.getElementById('colors');
+
+
+        for (var i = 0; i <= maximum; i++) {
+            const singleText = document.createElement('span');
+            singleText.className = 'colorElement';
+            singleText.innerHTML = nickname;
+            singleText.style.color = randomColor();
+            colorsBox.appendChild(singleText);
+            //document.write(`<span class="colorElement" style="color: ${randomColor()}">Nickname</span>`);
+        }
+    </script>
+</body>
+</html>
