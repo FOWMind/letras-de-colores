@@ -62,15 +62,15 @@
     <div id="colors"></div>
     <script>
         getNickname = () => {
-            nickname = prompt('Escribe tu nickname:');
-            if (nickname == '' || nickname == ' ') {
+            nickname = prompt('Escribe tu nickname:') || 'Nickname';
+            if (nickname == ' ') {
                 getNickname();
             }
         }
 
         getMaximum = () => {
-            maximum = prompt('¿Cuántos colores quieres generar?');
-            if (maximum == '' || maximum == ' ') {
+            maximum = prompt('¿Cuántos colores quieres generar?') || 100;
+            if (maximum == ' ') {
                 getMaximum();
             }
         }
